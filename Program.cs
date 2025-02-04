@@ -1,64 +1,63 @@
-﻿namespace New;
+﻿namespace _20250203;
 class Program
 {
     static void Main(string[] args)
     {
-        
         /*
-         이름 , 나이 입력 후 출력
-        Console.Write("이름 : ");
-        string name = Console.ReadLine();
-        Console.Write("나이 : ");
-        string age = Console.ReadLine();
-        Console.WriteLine("이름 : {0}  나이 : {1}", name, age);
+        string[] choices = { "가위", "바위", "" };
+        string playerChoice = " ";
+        string computerChoice = choices[new Random().Next(0, 3)];
+
+        while (playerChoice != computerChoice)
+        {
+            Console.Write("가위 , 바위 , 보 중 하나를 선택하세요 ");
+            playerChoice = Console.ReadLine();
+
+            if (playerChoice == computerChoice)
+            {
+                Console.WriteLine("비겼습니다 . ");
+            }
+            else if (
+                (playerChoice == "가위" && computerChoice == "보") ||
+                (playerChoice == "바위" && computerChoice == "가위") ||
+                (playerChoice == "보" && computerChoice == "바위")
+                )
+            {
+                Console.WriteLine("플레이어 승리 ");
+            }
+            else
+            {
+                Console.WriteLine("플레이어 패배 ");
+            }
+        }
         */
 
-        /*
-         두가지 숫자의 사칙연
-         * Console.Write("두가지 숫자를 입력 해주세요 : ");
 
-        string input = Console.ReadLine();    
-        string[] numbers = input.Split(' ');  
-        int num1 = int.Parse(numbers[0]);     
-        int num2 = int.Parse(numbers[1]);     
+        int targetNumber = new Random().Next(1, 101);
+        int guess = 0;
+        int count = 0;
+        Console.WriteLine("1부터 100 사이의 숫자를 맞춰보세요 ");
 
-        int sum = num1 + num2;
-        int min = num1 - num2;
-        int mup = num1 * num2;
-        int div = num1 / num2;
-        int rem = num1 % num2;
+        while (guess != targetNumber)
+        {
+            Console.Write("숫자를 입력하세요 : ");
+            guess = int.Parse(Console.ReadLine());
+            count++;
 
-        Console.WriteLine("{0} + {1} = {2}", num1, num2, sum);
-        Console.WriteLine("{0} - {1} = {2}", num1, num2, min);
-        Console.WriteLine("{0} * {1} = {2}", num1, num2, mup);
-        Console.WriteLine("{0} / {1} = {2} 나머지 {3}", num1, num2, div, rem);*/
+            if (guess < targetNumber)
+            {
+                Console.WriteLine("좀 더 큰 숫자를 입력해주세요 ");
 
-        /*
-          섭씨온도의 화씨온도 변환
-         * Console.Write("섭씨 온도를 입력 해주세요 : ");
-        string c = Console.ReadLine();
-        float numc = int.Parse(c);
-        float d = numc * 9 / 5 + 32;
-
-        Console.WriteLine("섭씨온도{0}를 화씨온도로 변환한 값 : {1}",c , d);*/
-
-
-
-        Console.WriteLine("키와 몸무계를 입력해주세요. ");
-        Console.Write("키 ");
-        string cm = Console.ReadLine();
-
-        Console.Write("몸무계 ");
-        string kg = Console.ReadLine();
-
-        float cm1 = float.Parse(cm);
-        float kg1 = float.Parse(kg);
-
-        float bmi = kg1 / ((cm1/100)  * (cm1/100));
-
-
-        Console.Write("키{0} 몸무계 {1} 의 BMI 지수는 {2} 입니다",cm , kg , bmi);
-
+            }
+            else if (guess > targetNumber)
+            {
+                Console.WriteLine("좀 더 작은 숫자를 입력해주세요");
+            }
+            else
+            {
+                Console.WriteLine("축하합니다! 숫자를 맞추셨습니다 ");
+                Console.WriteLine("시도한 횟수 : " + count);
+            }
+        }
     }
 }
-
